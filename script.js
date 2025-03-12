@@ -8,6 +8,8 @@ let BtnNewGame = document.querySelector("caption");
 let Cases = document.querySelectorAll("td");
 let NbTour = 1;
 
+
+
 // reset New Game
 
 function reset(){
@@ -29,8 +31,8 @@ BtnNewGame.addEventListener("click", function(){
 });
 
 
-// cliquer sur les cases
 
+// Déroulement du jeu
 
 Cases.forEach(function(CaseClicker){
     CaseClicker.addEventListener("click", function(){
@@ -48,6 +50,8 @@ Cases.forEach(function(CaseClicker){
         }
     });
 });
+
+
 
 // remplir le tableau de resultat
 
@@ -109,14 +113,8 @@ function TableResult(CaseClicker){
 };
 
 
-
-
-
-
-
-
-
 // combinaison gagnante possible
+
 function CheckWin(){
     if((result[0][0] === result[0][1] && result[0][1]=== result[0][2] && result[0][1] !== "") ||
         (result[1][0] === result[1][1] && result[1][1] === result[1][2] && result[1][1] !== "") ||
@@ -132,6 +130,9 @@ function CheckWin(){
     }
 };
 
+
+ // verifier s'il y a un vainqueur
+
 function Victory(){
     if(CheckWin() === true){
         setTimeout(() => {
@@ -144,26 +145,11 @@ function Victory(){
                 alert("Faire une nouvelle partie?");
                 reset();
             };
-        },500);
-    } else if(!CheckWin() && (NbTour === 10) ) {
+        },100);
+    } else if(!CheckWin() && (NbTour === 9) ) {
         setTimeout(() => {
             alert("Match Nul, Faire une nouvelle partie?");
             reset();
-        },500);
+        },100);
     };
 };
-
-
-
-/**
-result[0][0] === result[0][1] === result[0][2] ||
-result[1][0] === result[1][1] === result[1][2] ||
-result[2][0] === result[2][1] === result[2][2] ||
-
-result[0][0] === result[1][0] === result[2][0] ||
-result[0][1] === result[1][1] === result[2][1] ||
-result[0][2] === result[1][2] === result[2][2] ||
-
-result[0][0] === result[1][1] === result[2][2] ||
-result[2][0] === result[1][1] === result[0][2]
-**/

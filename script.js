@@ -147,7 +147,7 @@ function Victory(){
         },500);
     } else if(!CheckWin() && (NbTour === 10) ) {
         setTimeout(() => {
-            alert("Faire une nouvelle partie?");
+            alert("Match Nul, Faire une nouvelle partie?");
             reset();
         },500);
     };
